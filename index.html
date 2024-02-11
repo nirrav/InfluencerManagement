@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="png" href="media/bioscope-icon.png">
+    <title>Bioscope Media - Influencer Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+
+
+<body>
+    <div class="preloader">
+        <div class="brand-logo">
+            <!-- Your brand logo here -->
+            <img src="media/bioscope-logo.png" alt="Brand Logo">
+            <!-- Your brand name here -->
+            <h>Bioscope Media</h>
+        </div>
+    </div>
+    <script>
+        document.write('<div id="navbar-container"></div>');
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+    </script>
+    <div class="nav-btn">
+        <button>Models</button>
+        <button>Creators</button>
+    </div>
+
+    <div class="d-flex flex-row align-items-center">
+        <!-- Slideshow 1 (Left Side) -->
+        <div class="slideshow-container1">
+            <!-- Slides -->
+            <div class="slide">
+                <img src="media/slide-1.png" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="media/slide-2.png" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="media/slide-3.png" alt="Slide 3">
+            </div>
+        </div>
+
+        <!-- Slideshow 2 (Right Side) -->
+        <div class="slideshow-container2">
+            <div class="slide">
+                <img src="media/slide-4.png" alt="Slide 4">
+            </div>
+            <div class="slide">
+                <img src="media/slide-5.png" alt="Slide 5">
+            </div>
+            <div class="slide">
+                <img src="media/slide-6.png" alt="Slide 6">
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <!-- Brand icons will be dynamically added here -->
+            <img src="media/brand-icon.png" alt="Brand 1">
+            <img src="media/brand-icon.png" alt="Brand 2">
+            <img src="media/brand-icon.png" alt="Brand 3">
+            <img src="media/brand-icon.png" alt="Brand 1">
+            <img src="media/brand-icon.png" alt="Brand 2">
+            <img src="media/brand-icon.png" alt="Brand 3">
+            <img src="media/brand-icon.png" alt="Brand 1">
+            <img src="media/brand-icon.png" alt="Brand 2">
+            <img src="media/brand-icon.png" alt="Brand 3">
+            <img src="media/brand-icon.png" alt="Brand 1">
+            <img src="media/brand-icon.png" alt="Brand 2">
+            <img src="media/brand-icon.png" alt="Brand 3">
+            <img src="media/brand-icon.png" alt="Brand 1">
+            <img src="media/brand-icon.png" alt="Brand 2">
+            <img src="media/brand-icon.png" alt="Brand 3">
+            <img src="media/brand-icon.png" alt="Brand 1">
+            <img src="media/brand-icon.png" alt="Brand 2">
+            <img src="media/brand-icon.png" alt="Brand 3">
+            <img src="media/brand-icon.png" alt="Brand 1">
+            <img src="media/brand-icon.png" alt="Brand 2">
+            <img src="media/brand-icon.png" alt="Brand 3">
+            <img src="media/brand-icon.png" alt="Brand 1">
+            <img src="media/brand-icon.png" alt="Brand 2">
+            <img src="media/brand-icon.png" alt="Brand 3">
+            <img src="media/brand-icon.png" alt="Brand 1">
+            <img src="media/brand-icon.png" alt="Brand 2">
+            <img src="media/brand-icon.png" alt="Brand 3">
+        </div>
+    </div>
+
+
+    <section class="information-card">
+        <h1>Why choose Bioscope Studios?</h1>
+        <div class="card-container">
+            <div class="card">
+                <div class="circle">
+                    <h2>Premium Brands</h2>
+                </div>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, perspiciatis mollitia ducimus
+                        consequuntur harum aspernatur?</p>
+                    <!--<a href="#">Read More</a>-->
+                </div>
+            </div>
+            <div class="card">
+                <div class="circle">
+                    <h2>02</h2>
+                </div>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, perspiciatis mollitia ducimus
+                        consequuntur harum aspernatur?</p>
+                    <!-- <a href="#">Read More</a>-->
+                </div>
+            </div>
+            <div class="card">
+                <div class="circle">
+                    <h2>03</h2>
+                </div>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, perspiciatis mollitia ducimus
+                        consequuntur harum aspernatur?</p>
+                    <!-- <a href="#">Read More</a>-->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="featured-influencer">
+        <div class="container">
+            <h2>Featured Influencers</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="influencer-item">
+                        <img src="media/feat_1.png" class="img-fluid" alt="Nidhi">
+                        <div class="influencer-info">
+                            <h3>Nidhi Jaiswal</h3>
+                            <p>@nav9nidhi</p>
+                            <p>Age: 32</p>
+                            <p>Place: Mumbai, India</p>
+                            <p>Followers:</p>
+                            <ul>
+                                <li>Instagram: 100K</li>
+                                <li>YouTube: 200K</li>
+                                <li>Twitter: 50K</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="influencer-item">
+                        <img src="media/feat_2.png" class="img-fluid" alt="Nikita ">
+                        <div class="influencer-info">
+                            <h3>Nikita Tiwari</h3>
+                            <p>@nikita_tiwari</p>
+                            <p>Age: 28</p>
+                            <p>Place: Delhi, India</p>
+                            <p>Followers:</p>
+                            <ul>
+                                <li>Instagram: 150K</li>
+                                <li>YouTube: 180K</li>
+                                <li>Twitter: 40K</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="influencer-item">
+                        <img src="media/feat_3.png" class="img-fluid" alt="Akshit">
+                        <div class="influencer-info">
+                            <h3>Akshit Tiwari</h3>
+                            <p>@akshit_tiwari</p>
+                            <p>Age: 23</p>
+                            <p>Place: Bangalore, India</p>
+                            <p>Followers:</p>
+                            <ul>
+                                <li>Instagram: 120K</li>
+                                <li>YouTube: 220K</li>
+                                <li>Twitter: 60K</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-light text-center py-3 bg-dark">
+        <p class="mb-0">&copy; 2023 Influencer Management</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

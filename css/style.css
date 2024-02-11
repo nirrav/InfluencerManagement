@@ -1,0 +1,498 @@
+/* General styling */
+body {
+    background: linear-gradient(to bottom, #000000, #3b3b3b);
+    color: #fff;
+    margin-top: 10px;
+    /* Adjust the margin to set the desired space between navbar and body */
+}
+
+
+
+/* Slideshow styling */
+:root {
+    --container-width: 100%;
+    /* Default container width */
+    --container-height: 565px;
+    /* Default container height */
+}
+
+.slideshow-container1,
+.slideshow-container2 {
+    max-width: var(--container-width);
+    /* height: var(--container-height); */
+    /* Remove this line */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+
+.slide {
+    position: relative;
+    display: none;
+    transition: opacity 0.1s ease-in-out;
+    width: 100%;
+    height: var(--container-height);
+    overflow: hidden;
+}
+
+.slide img {
+    width: auto;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Add a black gradient overlay */
+.slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+
+/* Feature section styling */
+.feature-influencer,
+.feature-influencer h2 {
+    text-align: center;
+    padding: 50px 0;
+    color: #fff;
+}
+
+.feature-item {
+    background: linear-gradient(to right, #3e3434, #6d4f59);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.feature-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.feature-image {
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    /* Set the desired height */
+    border-radius: 10px;
+    display: none;
+    /* Initially hide the background image */
+}
+
+/* Influencer showcase styling */
+.featured-influencer {
+    text-align: center;
+    padding: 50px 0;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+:root {
+    --influencer-width: 400px;
+    /* Increase width by 20% for featured influencers */
+    --influencer-height: 800px;
+    /* Adjust height accordingly */
+}
+
+.influencer-item {
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: var(--influencer-width);
+    height: var(--influencer-height);
+    transition: transform 0.3s ease-in-out;
+    /* Add a smooth transition for transform property */
+}
+
+.influencer-item img {
+    border-radius: 10px;
+    width: 100%;
+    /* Make sure the image fills the container width */
+    height: 100%;
+    /* Make sure the image fills the container height */
+    object-fit: cover;
+    overflow: hidden;
+    /* Hide any content that overflows the container */
+}
+
+.influencer-info {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    /* Center the box horizontally and vertically */
+    text-align: center;
+    /* Center text horizontally */
+    padding: 150px;
+    /* Adjust padding as needed */
+    background: rgba(34, 31, 31, 0.8);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    /* Add a smooth transition for transform property */
+    color: #ffffff;
+    /* Change text color to white */
+    width: 400px;
+    /* Set the width of the box */
+    height: 800px;
+    /* Allow height to adjust based on content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.influencer-item:hover .influencer-info {
+    display: block;
+    /* Display the influencer info box on hover */
+    transform: translate(-50%, -50%) scale(1);
+    /* Scale up on hover */
+}
+
+.influencer-info h3,
+.influencer-info p,
+.influencer-info li {
+    margin: 15px 0;
+    /* Increase margin for the influencer info */
+}
+
+.influencer-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(115, 113, 113, 0.09);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.influencer-item:hover::before {
+    opacity: 1;
+}
+
+/* Footer styling */
+.bg-dark.text-light.text-center.py-3 {
+    background-color: #343a40;
+    color: #fff;
+    padding: 1rem;
+}
+
+.feature-section h2 {
+    text-align: center;
+    padding: 50px 0;
+    color: #ffffff;
+    /* Change text color to white */
+}
+
+.influencer-info ul {
+    list-style-type: none;
+    /* Remove bullet points */
+    padding: 0;
+    /* Remove default padding */
+    margin: 0;
+    /* Remove default margin */
+}
+
+
+
+
+/* Slideshow container 1 styling */
+.slideshow-container1,
+.slideshow-container2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.nav-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 1vh;
+    background-color: #000000;
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    margin: 25px 30px;
+    /* Adjusted margin to add more space horizontally and vertically */
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 22px;
+    /* Adjusted font size for better readability */
+    letter-spacing: 6px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    /* Increased border-radius to make corners more rounded */
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.8);
+}
+
+button:hover {
+    color: rgb(0, 0, 0);
+    box-shadow: inset 0 -108px 0 0 rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    /* Increased border-radius to make corners more rounded */
+
+}
+
+button.active {
+    transform: scale(0.9);
+}
+
+
+.preloader {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.brand-logo {
+    text-align: center;
+    padding: 20px;
+    /* Add 20px padding all around the logo */
+    position: absolute;
+    /* Position the brand logo */
+    top: 25%;
+    /* Move the logo vertically */
+    left: 25%;
+    /* Move the logo horizontally */
+}
+
+.brand-logo img {
+    width: 250px;
+    /* Increased size of the logo */
+    height: auto;
+    transition: all 2s ease-in-out;
+    /* Adjust the duration as needed */
+}
+
+.brand-logo h {
+    font-size: 80px;
+    margin-top: 80px;
+    color: #333;
+    /* Adjust the color as needed */
+    position: absolute;
+    /* Position the text */
+    top: 60px;
+    /* Move the text vertically */
+    left: 550px;
+    /* Center the text horizontally */
+    transform: translate(-50%, -50%);
+    /* Center the text precisely */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+}
+
+
+.preloader.fade-out {
+    transition: opacity 2s ease-in-out;
+    /* Smooth fade out */
+}
+
+.card-container {
+    position: relative;
+    width: 1060px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    /* Center horizontally */
+}
+
+
+.card-container .card {
+    position: relative;
+    width: 300px;
+    height: 420px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .2);
+    transition: .5s ease-in-out;
+}
+
+.card-container:hover .card {
+    filter: blur(20px);
+    transform: scale(.9);
+    opacity: .5;
+}
+
+.card-container .card:hover {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+}
+
+.card-container .card:hover .circle {
+    clip-path: circle(600px);
+}
+
+.card-container .card:hover .content p {
+    color: #fff;
+}
+
+.card-container .card:hover .content a {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .2),
+        -1px -1px 2px rgba(255, 255, 255, .4);
+}
+
+.card-container .card .content a:active {
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1),
+        inset 5px 5px 5px rgba(0, 0, 0, .04),
+        inset -5px -5px 5px rgba(255, 255, 255, .07),
+        inset -1px -1px 2px rgba(255, 255, 255, .4);
+}
+
+.card-container .card .circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    clip-path: circle(180px at center 0);
+    text-align: center;
+    transition: 1s ease-in-out;
+}
+
+.card-container .card h2 {
+    color: #fff;
+    font-size: 2.5em;
+    padding: 30px 0;
+}
+
+.card-container .card .content {
+    position: absolute;
+    bottom: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-container .card .content p {
+    color: #666;
+    transition: .5s ease-in-out;
+}
+
+.card-container .card .content a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    border-radius: 40px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: .8s ease-in-out;
+}
+
+.card-container .card:nth-child(1) .circle,
+.card-container .card:nth-child(1) .content a {
+    background: linear-gradient(to bottom, #000000, #3b3b3b);
+}
+
+.card-container .card:nth-child(2) .circle,
+.card-container .card:nth-child(2) .content a {
+    background: linear-gradient(to bottom, #000000, #3b3b3b);
+}
+
+.card-container .card:nth-child(3) .circle,
+.card-container .card:nth-child(3) .content a {
+    background: linear-gradient(to bottom, #000000, #3b3b3b);
+}
+
+.content a {
+    background-color: #000 !important;
+}
+
+@keyframes colorChange {
+    0% {
+        color: #fff;
+    }
+
+    50% {
+        color: #b1b493;
+    }
+
+    80% {
+        color: #4f8a8b;
+    }
+
+    100% {
+        color: #fff;
+    }
+}
+
+/* =======================Responsive Breakpoint ========================== */
+
+@media only screen and (max-width: 992px) {
+    /* Add responsive styles for max-width 992px */
+}
+
+@media only screen and (max-width: 768px) {
+    /* Add responsive styles for max-width 768px */
+}
+
+.information-card {
+    text-align: center;
+    padding: 50px 0;
+    color: #ffffff;
+    /* Change text color to white */
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    animation: scroll 10s linear infinite;
+    /* Adjust scroll speed as needed */
+}
+
+.carousel-track img {
+    width: 100px;
+    /* Adjust size of brand icons */
+    height: auto;
+    margin-right: 20px;
+    /* Adjust spacing between brand icons */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
