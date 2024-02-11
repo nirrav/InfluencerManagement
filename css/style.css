@@ -10,7 +10,7 @@ body {
 /* PRELOADER STYLES  */
 
 .preloader {
-    background-color: white;
+    background: linear-gradient(to right, #000000, #3b3b3b);
     position: fixed;
     top: 0;
     left: 0;
@@ -39,7 +39,7 @@ body {
 .brand-logo h {
     font-size: 10vh; /* Changed from 80px to 8vh */
     margin-top: 0; /* Adjusted to 0 to center vertically */
-    color: #333;
+    color: #ffffff;
     white-space: nowrap;
     position: relative; /* Added */
 }
@@ -166,164 +166,135 @@ button.active {
     }
 }
 
-/* INFO CARD STYLES */
+/* INFO CAR STYLES */
 
-/* Styles for the container holding the cards */
 .card-container {
     position: relative;
-    width: 1060px;
-    padding: 5vh; /* Padding around the container */
+    width: 100%; /* Converted from 1060px */
+    padding: 3vh; /* Converted from 20px */
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    flex-wrap: wrap; /* Allow cards to wrap to the next line */
-    margin: 0 auto; /* Center the container horizontally */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
-/* Styles for each individual card */
 .card-container .card {
     position: relative;
-    width: 300px; /* Width of each card */
-    height: 420px; /* Height of each card */
-    background-color: #fff; /* Background color of the card */
-    margin: 2vh; /* Margin around each card */
-    border-radius: 1.5vh; /* Border radius of each card */
-    overflow: hidden; /* Hide overflowing content */
-    box-shadow: 0 1.5vh 2.5vh rgba(0, 0, 0, .2); /* Shadow effect */
-    transition: .5s ease-in-out; /* Smooth transition on hover */
+    width: 40vh; /* Adjusted from 30vh */
+    height: 60vh; /* Adjusted from 50vh */
+    background-color: #fff;
+    margin: 3vh; /* Converted from 20px */
+    border-radius: 3vh; /* Converted from 20px */
+    overflow: hidden;
+    box-shadow: 0 2.5vh 4.5vh rgba(0, 0, 0, .2); /* Adjusted from 0 2vh 3.5vh */
+    transition: .5s ease-in-out;
 }
 
-/* Hover effect on the card container */
-.card-container:hover .card {
-    filter: blur(1vh); /* Blur effect on hover */
-    transform: scale(1); /* Scale down on hover */
-    opacity: .5; /* Reduce opacity on hover */
-}
-
-/* Hover effect on individual cards */
-.card-container .card:hover {
-    filter: blur(0); /* Remove blur on hover */
-    transform: scale(1.2); /* Restore original scale on hover */
-    opacity: 1; /* Restore full opacity on hover */
-}
-
-/* Hover effect on the circle element inside the card */
-.card-container .card:hover .circle {
-    clip-path: circle(30vh); /* Clip path effect on hover */
-}
-
-/* Styles for paragraph elements inside card content on hover */
-.card-container .card:hover .content p {
-    color: #fff; /* Change color on hover */
-}
-
-/* Styles for links inside card content on hover */
-.card-container .card:hover .content a {
-    box-shadow: 0.1vh 0.1vh 0.2vh rgba(0, 0, 0, .2), -0.1vh -0.1vh 0.2vh rgba(255, 255, 255, .4); /* Box shadow on hover */
-}
-
-/* Styles for active state of links inside card content */
-.card-container .card .content a:active {
-    box-shadow: inset 0.1vh 0.1vh 0.1vh rgba(0, 0, 0, .1), inset 0.5vh 0.5vh 0.5vh rgba(0, 0, 0, .04), inset -0.5vh -0.5vh 0.5vh rgba(255, 255, 255, .07), inset -0.1vh -0.1vh 0.2vh rgba(255, 255, 255, .4); /* Box shadow on active state */
-}
-
-/* Styles for the circular element inside the card */
 .card-container .card .circle {
     position: relative;
     width: 100%;
     height: 100%;
-    background: #000; /* Background color of the circle */
-    clip-path: circle(35vh at center 0); /* Clip path for circular shape */
-    text-align: center; /* Center text inside the circle */
-    transition: 1s ease-in-out; /* Smooth transition */
+    background: #000;
+    clip-path: circle(17.5vh at center 0); /* Adjusted from 15vh */
+    text-align: center;
+    transition: 1s ease-in-out;
 }
 
-/* Styles for heading elements inside the card */
 .card-container .card h2 {
-    color: #fff; /* Color of the heading */
-    font-size: 5.5vh; /* Font size of the heading */
-    padding: 1vh 0; /* Padding around the heading */
+    color: #fff;
+    font-size: 3.5vh; /* Adjusted from 3vh */
+    padding: 2.5vh 0; /* Adjusted from 2vh 0 */
 }
 
-/* Styles for content inside the card */
 .card-container .card .content {
     position: absolute;
-    bottom: 1vh; /* Position content at the bottom with some margin */
-    padding: 2vh; /* Padding around the content */
-    text-align: center; /* Center text inside the content */
+    bottom: 3vh; /* Adjusted from 2vh */
+    padding: 4.5vh; /* Adjusted from 4vh */
+    text-align: center;
 }
 
-/* Styles for paragraph elements inside card content */
 .card-container .card .content p {
-    color: #666; /* Color of paragraph text */
-    transition: .5s ease-in-out; /* Smooth transition */
+    color: #666;
+    transition: .5s ease-in-out;
 }
 
-/* Styles for links inside card content */
 .card-container .card .content a {
     position: relative;
     display: inline-block;
-    padding: 1vh 2vh; /* Padding around the link */
-    background: #000; /* Background color of the link */
-    color: #fff; /* Color of the link text */
-    border-radius: 4vh; /* Border radius of the link */
-    text-decoration: none; /* Remove underline from links */
-    margin-top: 2vh; /* Margin from the top */
-    transition: .8s ease-in-out; /* Smooth transition */
+    padding: 3vh 5vh; /* Adjusted from 2vh 4vh */
+    background: #000;
+    color: #fff;
+    border-radius: 10vh; /* Adjusted from 8vh */
+    text-decoration: none;
+    margin-top: 5vh; /* Adjusted from 4vh */
+    transition: .8s ease-in-out;
 }
 
-/* Styles for specific cards */
-.card-container .card:nth-child(1) .circle,
-.card-container .card:nth-child(1) .content a {
-    background: linear-gradient(to bottom, #000000, #3b3b3b);
+.card-container:hover .card {
+    filter: blur(4vh); /* Converted from 20px */
+    transform: scale(.9);
+    opacity: .5;
 }
 
-.card-container .card:nth-child(2) .circle,
-.card-container .card:nth-child(2) .content a {
-    background: linear-gradient(to bottom, #000000, #3b3b3b);
+.card-container .card:hover {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
 }
 
-.card-container .card:nth-child(3) .circle,
-.card-container .card:nth-child(3) .content a {
-    background: linear-gradient(to bottom, #000000, #3b3b3b);
+.card-container .card:hover .circle {
+    clip-path: circle(40vh); /* Adjusted from 35vh */
 }
 
-/* Override background color of links */
+.card-container .card:hover .content p {
+    color: #fff;
+}
+
+.card-container .card:hover .content a {
+    box-shadow: 0.5vh 0.5vh 1vh rgba(0, 0, 0, .2), -0.5vh -0.5vh 1vh rgba(255, 255, 255, .4); /* Adjusted from 0.4vh 0.4vh 0.8vh */
+}
+
+.card-container .card .content a:active {
+    box-shadow: inset 0.5vh 0.5vh 0.5vh rgba(0, 0, 0, .1), inset 3vh 3vh 3vh rgba(0, 0, 0, .04), inset -3vh -3vh 3vh rgba(255, 255, 255, .07), inset -0.5vh -0.5vh 1vh rgba(255, 255, 255, .4); /* Adjusted from 0.4vh 0.4vh 0.4vh */
+}
+
 .content a {
     background-color: #000 !important;
 }
 
-/* Keyframes for color change animation */
 @keyframes colorChange {
     0% {
         color: #fff;
     }
+
     50% {
         color: #b1b493;
     }
+
     80% {
         color: #4f8a8b;
     }
+
     100% {
         color: #fff;
     }
 }
 
-/* Media queries for responsive design */
 @media only screen and (max-width: 992px) {
-    /* Styles for screens up to 992px width */
+    /* Add your responsive styles here for screens up to 992px width */
 }
 
 @media only screen and (max-width: 768px) {
-    /* Styles for screens up to 768px width */
+    /* Add your responsive styles here for screens up to 768px width */
 }
 
-/* Styles for a specific type of card with the class .information-card */
 .information-card {
-    text-align: center; /* Center text inside the information card */
-    padding: 5vh 0; /* Padding top and bottom */
-    color: #ffffff; /* Color of the text */
+    text-align: center;
+    padding: 6vh 0; /* Converted from 50px */
+    color: #ffffff;
 }
+
 
 
 /* FEATURED INFLUENCER STYLES */
