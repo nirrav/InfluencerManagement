@@ -25,24 +25,27 @@ body {
 .brand-logo {
     display: flex; /* Display logo and text next to each other */
     align-items: center; /* Center vertically */
-    padding: 2vh; /* Changed from 20px to 2vh */
+    padding: 5vw; /* Adjusted for better responsiveness */
     position: relative; /* Added */
 }
 
 .brand-logo img {
-    width: 18vh; /* Changed from 250px to 16.666vh */
+    width: 20vw; /* Adjusted for better responsiveness */
+    max-width: 200px; /* Added for maximum width */
     height: auto;
     transition: all 2s ease-in-out;
-    margin-right: 2vh; /* Added */
+    margin-right: 2vw; /* Adjusted for better responsiveness */
 }
 
-.brand-logo h {
-    font-size: 10vh; /* Changed from 80px to 8vh */
-    margin-top: 0; /* Adjusted to 0 to center vertically */
-    color: #ffffff;
+.brand-logo h1 {
+    font-size: clamp(3rem, 0.3043vw + 3.783vw, 6rem);
+    margin-top: 0;
+    color: #fff !important; /* White text color */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
     white-space: nowrap;
-    position: relative; /* Added */
+    position: relative;
 }
+
 
 .preloader.fade-out {
     transition: opacity 2s ease-in-out;
