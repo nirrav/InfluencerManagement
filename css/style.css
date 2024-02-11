@@ -38,7 +38,7 @@ body {
 }
 
 .brand-logo h1 {
-    font-size: clamp(3rem, 0.3043vw + 3.783vw, 6rem);
+    font-size: clamp(1rem, 0.3043vw + 3.783vw, 12rem);
     margin-top: 0;
     color: #fff !important; /* White text color */
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
