@@ -3,7 +3,8 @@
 body {
     background: linear-gradient(to bottom, #000000, #3b3b3b);
     color: #fff;
-    margin-top: 10px;
+    margin-top: 1vh;
+    /* Changed from 10px to 1vh */
 }
 
 /* PRELOADER STYLES  */
@@ -16,39 +17,41 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     z-index: 9999;
 }
 
 .brand-logo {
-    text-align: center;
-    padding: 20px;
-    position: absolute;
-    top: 25%;
-    left: 25%;
+    display: flex; /* Display logo and text next to each other */
+    align-items: center; /* Center vertically */
+    padding: 2vh; /* Changed from 20px to 2vh */
+    position: relative; /* Added */
 }
 
 .brand-logo img {
-    width: 250px;
+    width: 18vh; /* Changed from 250px to 16.666vh */
     height: auto;
     transition: all 2s ease-in-out;
+    margin-right: 2vh; /* Added */
 }
 
 .brand-logo h {
-    font-size: 80px;
-    margin-top: 80px;
+    font-size: 10vh; /* Changed from 80px to 8vh */
+    margin-top: 0; /* Adjusted to 0 to center vertically */
     color: #333;
-    position: absolute;
-    top: 60px;
-    left: 550px;
-    transform: translate(-50%, -50%);
     white-space: nowrap;
+    position: relative; /* Added */
 }
 
 .preloader.fade-out {
     transition: opacity 2s ease-in-out;
 }
+
+
+
+
+
 
 /* MODEL & CREATOR BUTTONS  */
 
@@ -57,71 +60,83 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 1vh;
+    /* Adjusted from 1px to 1vh */
     background-color: #000000;
 }
 
 button {
     position: relative;
     display: inline-block;
-    margin: 25px 30px;
-    padding: 15px 30px;
+    margin: 1.875vh 2.25vh;
+    /* Changed from 25px 30px */
+    padding: 1.875vh 2.25vh;
+    /* Changed from 15px 30px */
     text-align: center;
-    font-size: 22px;
-    letter-spacing: 6px;
+    font-size: 2.75vh;
+    /* Changed from 22px to 2.75vh */
+    letter-spacing: 0.75vh;
+    /* Changed from 6px to 0.75vh */
     text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
     background: transparent;
     cursor: pointer;
     transition: ease-out 0.5s;
-    border: 2px solid rgba(0, 0, 0, 0.8);
-    border-radius: 20px;
+    border: 0.15vh solid rgba(0, 0, 0, 0.8);
+    /* Changed from 2px */
+    border-radius: 1.5vh;
+    /* Changed from 20px */
     box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.8);
 }
 
 button:hover {
     color: rgb(0, 0, 0);
-    box-shadow: inset 0 -108px 0 0 rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
+    box-shadow: inset 0 -8.64vh 0 0 rgba(255, 255, 255, 0.8);
+    /* Changed from -108px */
+    border-radius: 1.5vh;
+    /* Changed from 20px */
 }
 
 button.active {
     transform: scale(0.9);
 }
 
-/* SLIDESHOW STYLES  */
-
-:root {
-    --container-width: 100%;
-    --container-height: 565px;
-}
+/* SLIDESHOW STYLES */
 
 .slideshow-container1,
 .slideshow-container2 {
-    max-width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
-    position: relative;
-    margin-top: 10px;
+    position: absolute;
+    margin-top: 2vh;
+    /* Adjust margin-top using vh units */
     overflow: hidden;
-    display: grid;
+    display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 110vh;
+    /* Adjust max-width using vh units */
 }
 
 .slide {
     position: relative;
     display: none;
     transition: opacity 0.1s ease-in-out;
-    width: 100%;
-    height: var(--container-height);
     overflow: hidden;
+    max-width: 100%;
+    margin-right: 1vh;
+    /* Add margin-right for gap using vh units */
+    border-radius: 1vh;
+    /* Adjust border-radius using vh units */
+    /* Ensure the slide does not exceed its container */
 }
 
 .slide img {
-    width: auto;
+    width: 100%;
     height: 100%;
-    border-radius: 10px;
-    object-fit: fill;
+    object-fit: cover;
+    /* Use cover to ensure the entire container is filled */
+    aspect-ratio: 4/3;
+    /* Adjust aspect ratio as needed */
 }
 
 .slide::before {
@@ -142,103 +157,122 @@ button.active {
     justify-content: center;
 }
 
-/* INFO CAR STYLES */
+@media only screen and (max-width: 768px) {
 
+    .slideshow-container1,
+    .slideshow-container2 {
+        max-width: 90vh;
+        /* Adjust max-width for smaller screens using vh units */
+    }
+}
+
+/* INFO CARD STYLES */
+
+/* Styles for the container holding the cards */
 .card-container {
     position: relative;
     width: 1060px;
-    padding: 20px;
+    padding: 5vh; /* Padding around the container */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 0 auto;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    margin: 0 auto; /* Center the container horizontally */
 }
 
+/* Styles for each individual card */
 .card-container .card {
     position: relative;
-    width: 300px;
-    height: 420px;
-    background-color: #fff;
-    margin: 20px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, .2);
-    transition: .5s ease-in-out;
+    width: 300px; /* Width of each card */
+    height: 420px; /* Height of each card */
+    background-color: #fff; /* Background color of the card */
+    margin: 2vh; /* Margin around each card */
+    border-radius: 1.5vh; /* Border radius of each card */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0 1.5vh 2.5vh rgba(0, 0, 0, .2); /* Shadow effect */
+    transition: .5s ease-in-out; /* Smooth transition on hover */
 }
 
+/* Hover effect on the card container */
 .card-container:hover .card {
-    filter: blur(20px);
-    transform: scale(.9);
-    opacity: .5;
+    filter: blur(1vh); /* Blur effect on hover */
+    transform: scale(1); /* Scale down on hover */
+    opacity: .5; /* Reduce opacity on hover */
 }
 
+/* Hover effect on individual cards */
 .card-container .card:hover {
-    filter: blur(0);
-    transform: scale(1);
-    opacity: 1;
+    filter: blur(0); /* Remove blur on hover */
+    transform: scale(1.2); /* Restore original scale on hover */
+    opacity: 1; /* Restore full opacity on hover */
 }
 
+/* Hover effect on the circle element inside the card */
 .card-container .card:hover .circle {
-    clip-path: circle(600px);
+    clip-path: circle(30vh); /* Clip path effect on hover */
 }
 
+/* Styles for paragraph elements inside card content on hover */
 .card-container .card:hover .content p {
-    color: #fff;
+    color: #fff; /* Change color on hover */
 }
 
+/* Styles for links inside card content on hover */
 .card-container .card:hover .content a {
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, .2),
-        -1px -1px 2px rgba(255, 255, 255, .4);
+    box-shadow: 0.1vh 0.1vh 0.2vh rgba(0, 0, 0, .2), -0.1vh -0.1vh 0.2vh rgba(255, 255, 255, .4); /* Box shadow on hover */
 }
 
+/* Styles for active state of links inside card content */
 .card-container .card .content a:active {
-    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1),
-        inset 5px 5px 5px rgba(0, 0, 0, .04),
-        inset -5px -5px 5px rgba(255, 255, 255, .07),
-        inset -1px -1px 2px rgba(255, 255, 255, .4);
+    box-shadow: inset 0.1vh 0.1vh 0.1vh rgba(0, 0, 0, .1), inset 0.5vh 0.5vh 0.5vh rgba(0, 0, 0, .04), inset -0.5vh -0.5vh 0.5vh rgba(255, 255, 255, .07), inset -0.1vh -0.1vh 0.2vh rgba(255, 255, 255, .4); /* Box shadow on active state */
 }
 
+/* Styles for the circular element inside the card */
 .card-container .card .circle {
     position: relative;
     width: 100%;
     height: 100%;
-    background: #000;
-    clip-path: circle(180px at center 0);
-    text-align: center;
-    transition: 1s ease-in-out;
+    background: #000; /* Background color of the circle */
+    clip-path: circle(35vh at center 0); /* Clip path for circular shape */
+    text-align: center; /* Center text inside the circle */
+    transition: 1s ease-in-out; /* Smooth transition */
 }
 
+/* Styles for heading elements inside the card */
 .card-container .card h2 {
-    color: #fff;
-    font-size: 2.5em;
-    padding: 10px 0;
+    color: #fff; /* Color of the heading */
+    font-size: 5.5vh; /* Font size of the heading */
+    padding: 1vh 0; /* Padding around the heading */
 }
 
+/* Styles for content inside the card */
 .card-container .card .content {
     position: absolute;
-    bottom: 10px;
-    padding: 20px;
-    text-align: center;
+    bottom: 1vh; /* Position content at the bottom with some margin */
+    padding: 2vh; /* Padding around the content */
+    text-align: center; /* Center text inside the content */
 }
 
+/* Styles for paragraph elements inside card content */
 .card-container .card .content p {
-    color: #666;
-    transition: .5s ease-in-out;
+    color: #666; /* Color of paragraph text */
+    transition: .5s ease-in-out; /* Smooth transition */
 }
 
+/* Styles for links inside card content */
 .card-container .card .content a {
     position: relative;
     display: inline-block;
-    padding: 10px 20px;
-    background: #000;
-    color: #fff;
-    border-radius: 40px;
-    text-decoration: none;
-    margin-top: 20px;
-    transition: .8s ease-in-out;
+    padding: 1vh 2vh; /* Padding around the link */
+    background: #000; /* Background color of the link */
+    color: #fff; /* Color of the link text */
+    border-radius: 4vh; /* Border radius of the link */
+    text-decoration: none; /* Remove underline from links */
+    margin-top: 2vh; /* Margin from the top */
+    transition: .8s ease-in-out; /* Smooth transition */
 }
 
+/* Styles for specific cards */
 .card-container .card:nth-child(1) .circle,
 .card-container .card:nth-child(1) .content a {
     background: linear-gradient(to bottom, #000000, #3b3b3b);
@@ -254,87 +288,93 @@ button.active {
     background: linear-gradient(to bottom, #000000, #3b3b3b);
 }
 
+/* Override background color of links */
 .content a {
     background-color: #000 !important;
 }
 
+/* Keyframes for color change animation */
 @keyframes colorChange {
     0% {
         color: #fff;
     }
-
     50% {
         color: #b1b493;
     }
-
     80% {
         color: #4f8a8b;
     }
-
     100% {
         color: #fff;
     }
 }
 
-@media only screen and (max-width: 992px) {}
-
-@media only screen and (max-width: 768px) {}
-
-.information-card {
-    text-align: center;
-    padding: 50px 0;
-    color: #ffffff;
+/* Media queries for responsive design */
+@media only screen and (max-width: 992px) {
+    /* Styles for screens up to 992px width */
 }
+
+@media only screen and (max-width: 768px) {
+    /* Styles for screens up to 768px width */
+}
+
+/* Styles for a specific type of card with the class .information-card */
+.information-card {
+    text-align: center; /* Center text inside the information card */
+    padding: 5vh 0; /* Padding top and bottom */
+    color: #ffffff; /* Color of the text */
+}
+
 
 /* FEATURED INFLUENCER STYLES */
 
 .feature-influencer,
 .feature-influencer h2 {
     text-align: center;
-    padding: 50px 0;
+    padding: 5vh 0;
+    /* Changed from 50px */
     color: #fff;
 }
 
 .feature-item {
     background: linear-gradient(to right, #3e3434, #6d4f59);
     border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 2vh;
+    /* Changed from 20px */
+    margin-bottom: 2vh;
+    /* Changed from 20px */
 }
 
 .feature-item img {
     width: 100%;
     height: auto;
     border-radius: 10px;
+    aspect-ratio: 4/3;
 }
 
 .feature-image {
     background-size: cover;
     background-position: center;
-    height: 300px;
+    /* Updated height */
     border-radius: 10px;
     display: none;
 }
 
 .featured-influencer {
     text-align: center;
-    padding: 50px 0;
+    padding: 5vh 0;
+    /* Changed from 50px */
     color: #ffffff;
-    margin-bottom: 5px;
+    margin-bottom: 0.5vh;
+    /* Changed from 5px */
     object-fit: fill;
-}
-
-:root {
-    --influencer-width: 400px;
-    --influencer-height: 800px;
 }
 
 .influencer-item {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 2vh;
+    /* Changed from 20px */
     overflow: hidden;
-    width: var(--influencer-width);
-    height: var(--influencer-height);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -353,13 +393,16 @@ button.active {
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     text-align: center;
-    padding: 150px;
+    padding: 15vh;
+    /* Changed from 150px */
     background: rgba(34, 31, 31, 0.8);
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
     color: #ffffff;
-    width: 400px;
-    height: 800px;
+    width: 53.333vh;
+    /* Changed from 400px */
+    height: 106.666vh;
+    /* Changed from 800px */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -374,7 +417,8 @@ button.active {
 .influencer-info h3,
 .influencer-info p,
 .influencer-info li {
-    margin: 15px 0;
+    margin: 3vh 0;
+    /* Changed from 15px */
 }
 
 .influencer-item::before {
@@ -396,12 +440,14 @@ button.active {
 .bg-dark.text-light.text-center.py-3 {
     background-color: #343a40;
     color: #fff;
-    padding: 1rem;
+    padding: 1vh;
+    /* Changed from 1rem */
 }
 
 .feature-section h2 {
     text-align: center;
-    padding: 50px 0;
+    padding: 5vh 0;
+    /* Changed from 50px */
     color: #ffffff;
 }
 
