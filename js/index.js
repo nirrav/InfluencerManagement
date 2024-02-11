@@ -54,25 +54,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 2000); // Adjust the duration of fade out animation as needed
     }, 2000); // Adjust the duration before the animation starts as needed
 });
-// Check if the carousel track exists before proceeding
-const carouselTrack = document.querySelector('.carousel-track');
-if (carouselTrack) {
-    // List of brand icons
-    const brands = ['brand1.png', 'brand2.png', 'brand3.png'];
-
-    // Create a document fragment to optimize performance
-    const fragment = document.createDocumentFragment();
-
-    // Loop through the brand icons and create image elements
-    brands.forEach(brand => {
-        const img = document.createElement('img');
-        img.src = brand;
-        img.alt = 'Brand'; // You can set alternative text for accessibility
-        fragment.appendChild(img);
-    });
-
-    // Append all image elements to the carousel track at once
-    carouselTrack.appendChild(fragment);
-} else {
-    console.error('Carousel track not found.');
-}
