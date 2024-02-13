@@ -3,8 +3,15 @@
 body {
     background: linear-gradient(to bottom, #000000, #3b3b3b);
     color: #fff;
-    margin-top: 1vh;
+    width: 100%;
     /* Changed from 10px to 1vh */
+}
+
+
+
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 /* PRELOADER STYLES  */
@@ -17,31 +24,42 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
     z-index: 9999;
 }
 
 .brand-logo {
-    display: flex; /* Display logo and text next to each other */
-    align-items: center; /* Center vertically */
-    padding: 5vw; /* Adjusted for better responsiveness */
-    position: relative; /* Added */
+    display: flex;
+    /* Display logo and text next to each other */
+    align-items: center;
+    /* Center vertically */
+    padding: 5vw;
+    /* Adjusted for better responsiveness */
+    position: relative;
+    /* Added */
 }
 
 .brand-logo img {
-    width: 20vw; /* Adjusted for better responsiveness */
-    max-width: 200px; /* Added for maximum width */
+    width: 20vw;
+    /* Adjusted for better responsiveness */
+    max-width: 200px;
+    /* Added for maximum width */
     height: auto;
     transition: all 2s ease-in-out;
-    margin-right: 2vw; /* Adjusted for better responsiveness */
+    margin-right: 2vw;
+    /* Adjusted for better responsiveness */
 }
 
 .brand-logo h1 {
-    font-size: clamp(2.5 rem, 0.3043vw + 3.783vw, 12rem);
+    font-size: clamp(3rem, 0.3043vw + 4.783vw, 14rem);
     margin-top: 0;
-    color: #fff !important; /* White text color */
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+    color: #fff !important;
+    /* White text color */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Text shadow for better visibility */
     white-space: nowrap;
     position: relative;
 }
@@ -107,8 +125,8 @@ button.active {
 
 .slideshow-container1,
 .slideshow-container2 {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 2vh;
+    margin-right: 1vh;
     position: absolute;
     margin-top: 2vh;
     /* Adjust margin-top using vh units */
@@ -129,8 +147,8 @@ button.active {
     margin-right: 1vh;
     /* Add margin-right for gap using vh units */
     border-radius: 1vh;
-    /* Adjust border-radius using vh units */
-    /* Ensure the slide does not exceed its container */
+    opacity: 0;
+    transition: opacity 1s ease; /* Adjust the duration and easing function as needed */
 }
 
 .slide img {
@@ -169,17 +187,21 @@ button.active {
     }
 }
 
-/* INFO CAR STYLES */
+/* INFO CARD STYLESx */
 
 .card-container {
     position: relative;
     width: clamp(50vh, 100%, 190vh);
-    padding: 3vh; /* Converted from 20px */
+    /* Converted from 20px */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     margin: 0 auto;
+}
+.information-card h1{
+    text-align: center;
+    color: #ffffff;
 }
 
 .card-container .card {
@@ -190,7 +212,8 @@ button.active {
     margin: 3vh;
     border-radius: 3vh;
     overflow: hidden;
-    box-shadow: 0 2.5vh 2.5vh rgba(0, 0, 0, .2); /* Adjusted the blur value */
+    box-shadow: 0 2.5vh 2.5vh rgba(0, 0, 0, .2);
+    /* Adjusted the blur value */
     transition: .5s ease-in-out;
 }
 
@@ -200,21 +223,20 @@ button.active {
     width: 100%;
     height: 100%;
     background: #000;
-    clip-path: circle(17.5vh at center 0); /* Adjusted from 15vh */
+    clip-path: circle(17.5vh at center 0);
+    /* Adjusted from 15vh */
     text-align: center;
     transition: 1s ease-in-out;
 }
 
-.card-container .card h2 {
-    color: #fff;
-    font-size: 3.5vh; /* Adjusted from 3vh */
-    padding: 2.5vh 0; /* Adjusted from 2vh 0 */
-}
+
 
 .card-container .card .content {
     position: absolute;
-    bottom: 3vh; /* Adjusted from 2vh */
-    padding: 4.5vh; /* Adjusted from 4vh */
+    bottom: 3vh;
+    /* Adjusted from 2vh */
+    padding: 4.5vh;
+    /* Adjusted from 4vh */
     text-align: center;
 }
 
@@ -226,17 +248,21 @@ button.active {
 .card-container .card .content a {
     position: relative;
     display: inline-block;
-    padding: 3vh 5vh; /* Adjusted from 2vh 4vh */
+    padding: 3vh 5vh;
+    /* Adjusted from 2vh 4vh */
     background: #000;
     color: #fff;
-    border-radius: 10vh; /* Adjusted from 8vh */
+    border-radius: 10vh;
+    /* Adjusted from 8vh */
     text-decoration: none;
-    margin-top: 5vh; /* Adjusted from 4vh */
+    margin-top: 5vh;
+    /* Adjusted from 4vh */
     transition: .8s ease-in-out;
 }
 
 .card-container:hover .card {
-    filter: blur(2vh); /* Converted from 20px */
+    filter: blur(2vh);
+    /* Converted from 20px */
     transform: scale(.9);
     opacity: .8;
 }
@@ -248,7 +274,8 @@ button.active {
 }
 
 .card-container .card:hover .circle {
-    clip-path: circle(40vh); /* Adjusted from 35vh */
+    clip-path: circle(40vh);
+    /* Adjusted from 35vh */
 }
 
 .card-container .card:hover .content p {
@@ -256,11 +283,13 @@ button.active {
 }
 
 .card-container .card:hover .content a {
-    box-shadow: 0.5vh 0.5vh 1vh rgba(0, 0, 0, .2), -0.5vh -0.5vh 1vh rgba(255, 255, 255, .4); /* Adjusted from 0.4vh 0.4vh 0.8vh */
+    box-shadow: 0.5vh 0.5vh 1vh rgba(0, 0, 0, .2), -0.5vh -0.5vh 1vh rgba(255, 255, 255, .4);
+    /* Adjusted from 0.4vh 0.4vh 0.8vh */
 }
 
 .card-container .card .content a:active {
-    box-shadow: inset 0.5vh 0.5vh 0.5vh rgba(0, 0, 0, .1), inset 3vh 3vh 3vh rgba(0, 0, 0, .04), inset -3vh -3vh 3vh rgba(255, 255, 255, .07), inset -0.5vh -0.5vh 1vh rgba(255, 255, 255, .4); /* Adjusted from 0.4vh 0.4vh 0.4vh */
+    box-shadow: inset 0.5vh 0.5vh 0.5vh rgba(0, 0, 0, .1), inset 3vh 3vh 3vh rgba(0, 0, 0, .04), inset -3vh -3vh 3vh rgba(255, 255, 255, .07), inset -0.5vh -0.5vh 1vh rgba(255, 255, 255, .4);
+    /* Adjusted from 0.4vh 0.4vh 0.4vh */
 }
 
 .content a {
@@ -295,139 +324,122 @@ button.active {
 
 .information-card {
     text-align: center;
-    padding: 6vh 0; /* Converted from 50px */
+    padding: 6vh 0;
+    /* Converted from 50px */
     color: #ffffff;
+}
+
+.card1 h2 {
+    color: #fff;
+    font-size: 3.8vh;
+    padding: 2.5vh 0;
+
+}
+
+.card2 h2 {
+    color: #fff;
+    font-size: 3.5vh;
+}
+
+.card3 h2 {
+    color: #fff;
+    font-size: 3.5vh;
+    padding: 2.5vh 0;
+}
+
+.card4 h2 {
+    color: #fff;
+    font-size: 3.5vh;
+    padding: 2.5vh 0;
 }
 
 
 
 /* FEATURED INFLUENCER STYLES */
 
-.feature-influencer,
-.feature-influencer h2 {
+.featured-influencer,
+.featured-influencer h2 {
     text-align: center;
-    padding: 5vh 0;
-    /* Changed from 50px */
+    padding: 1vh 0;
     color: #fff;
-}
-
-.feature-item {
-    background: linear-gradient(to right, #3e3434, #6d4f59);
-    border-radius: 15px;
-    padding: 2vh;
-    /* Changed from 20px */
-    margin-bottom: 2vh;
-    /* Changed from 20px */
-}
-
-.feature-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    aspect-ratio: 4/3;
-}
-
-.feature-image {
-    background-size: cover;
-    background-position: center;
-    /* Updated height */
-    border-radius: 10px;
-    display: none;
-}
-
-.featured-influencer {
-    text-align: center;
-    padding: 5vh 0;
-    /* Changed from 50px */
-    color: #ffffff;
     margin-bottom: 0.5vh;
-    /* Changed from 5px */
-    object-fit: fill;
 }
 
 .influencer-item {
+    perspective: 1000px;
+    /* Add perspective to create 3D effect */
     position: relative;
     margin-bottom: 2vh;
-    /* Changed from 20px */
     overflow: hidden;
-    transition: transform 0.3s ease-in-out;
 }
 
 .influencer-item img {
     border-radius: 10px;
     width: 100%;
-    height: 100%;
-    object-fit: fill;
-    overflow: hidden;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s;
 }
 
-.influencer-info {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    text-align: center;
-    padding: 15vh;
-    /* Changed from 150px */
-    background: rgba(34, 31, 31, 0.8);
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-    color: #ffffff;
-    width: 53.333vh;
-    /* Changed from 400px */
-    height: 106.666vh;
-    /* Changed from 800px */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.influencer-item:hover .influencer-info {
-    display: block;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.influencer-info h3,
-.influencer-info p,
-.influencer-info li {
-    margin: 3vh 0;
-    /* Changed from 15px */
-}
-
-.influencer-item::before {
-    content: '';
+.influencer-item .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(115, 113, 113, 0.09);
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent black overlay */
+    transition: opacity 0.5s;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    /* Initially invisible */
+    color: #ffffff;
 }
 
-.influencer-item:hover::before {
-    opacity: 1;
+.influencer-item:hover .overlay {
+    opacity: 0.8;
+    /* Show the overlay on hover */
+    background-color: #000;
 }
+
+.influencer-item:hover img {
+    transform: rotateY(180deg);
+    /* Rotate image on hover */
+}
+
+
+.overlay {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    justify-content: center;
+    /* Center vertically */
+    align-items: center;
+    /* Center horizontally */
+    text-align: center;
+    /* Center text within the overlay */
+    height: 100%;
+    /* Ensures full height of the parent container */
+    border-radius: 1.2vh;
+
+}
+
+.overlay h1 {
+    color: #ffffff;
+    font-size: 26px;
+    /* Adjust the font size as needed */
+    margin: 10px 0;
+    /* Adds some space between the items */
+}
+
+
+
+
+
+/* FOOTER STYLES */
 
 .bg-dark.text-light.text-center.py-3 {
     background-color: #343a40;
     color: #fff;
     padding: 1vh;
     /* Changed from 1rem */
-}
-
-.feature-section h2 {
-    text-align: center;
-    padding: 5vh 0;
-    /* Changed from 50px */
-    color: #ffffff;
-}
-
-.influencer-info ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
 }

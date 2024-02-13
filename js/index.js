@@ -1,36 +1,35 @@
-var slideIndex1 = 0;
-var slideIndex2 = 0;
+// Wait for the DOM content to load before executing JavaScript
+document.addEventListener("DOMContentLoaded", function () {
+    // Define variables for slideshows
+    var slideshows = document.querySelectorAll('.slideshow-container1, .slideshow-container2');
 
-showSlides1();
-showSlides2();
+    // Iterate through each slideshow
+    slideshows.forEach(function (slideshow) {
+        var slides = slideshow.querySelectorAll('.slide'); // Get all slides within the current slideshow
+        var slideIndex = 0; // Set the initial slide index
 
-function showSlides1() {
-    var i;
-    var slides = document.querySelectorAll(".slideshow-container1 .slide");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex1++;
-    if (slideIndex1 > slides.length) {
-        slideIndex1 = 1;
-    }
-    slides[slideIndex1 - 1].style.display = "block";
-    setTimeout(showSlides1, 1700);
-}
+        // Show the first slide initially
+        slides[slideIndex].style.display = "block";
+        slides[slideIndex].style.opacity = 1;
 
-function showSlides2() {
-    var i;
-    var slides = document.querySelectorAll(".slideshow-container2 .slide");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex2++;
-    if (slideIndex2 > slides.length) {
-        slideIndex2 = 1;
-    }
-    slides[slideIndex2 - 1].style.display = "block";
-    setTimeout(showSlides2, 1700);
-}
+        // Define the function to display the next slide
+        function showNextSlide() {
+            // Hide the current slide
+            slides[slideIndex].style.opacity = 0;
+            setTimeout(function () {
+                slides[slideIndex].style.display = "none";
+                // Increment the slide index
+                slideIndex = (slideIndex + 1) % slides.length;
+                // Show the next slide
+                slides[slideIndex].style.display = "block";
+                slides[slideIndex].style.opacity = 1;
+            }, 1000); // Adjust the transition duration here (in milliseconds)
+        }
+
+        // Set an interval to automatically switch slides
+        setInterval(showNextSlide, 3000); // Adjust the interval duration here (in milliseconds)
+    });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     // Wait for the DOM content to be fully loaded
