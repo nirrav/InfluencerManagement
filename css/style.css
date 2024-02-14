@@ -275,8 +275,8 @@ button.active {
     display: inline-block;
     padding: 3vh 5vh;
     /* Adjusted from 2vh 4vh */
-    background: #000;
-    color: #fff;
+    background: #ffffff;
+    color: #ffffff;
     border-radius: 10vh;
     /* Adjusted from 8vh */
     text-decoration: none;
@@ -286,7 +286,7 @@ button.active {
 }
 
 .card-container:hover .card {
-    filter: blur(2vh);
+    filter: blur(0.2vh);
     /* Converted from 20px */
     transform: scale(.9);
     opacity: .8;
@@ -318,7 +318,7 @@ button.active {
 }
 
 .content a {
-    background-color: #000 !important;
+    background-color: #140707 !important;
 }
 
 @keyframes colorChange {
