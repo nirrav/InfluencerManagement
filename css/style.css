@@ -18,7 +18,7 @@ body::-webkit-scrollbar {
 
 .preloader {
     background: linear-gradient(to right, #000000, #3b3b3b);
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -43,7 +43,7 @@ body::-webkit-scrollbar {
 }
 
 .brand-logo img {
-    width: 10vw;
+    width: clamp(5vw, 10vw, 20vw);
     height: auto;
     transition: all 2s ease-in-out;
     /* Adjusted for better responsiveness */
@@ -137,10 +137,9 @@ button.active {
 .slide {
     position: relative;
     display: contents;
-    transition: opacity 0.1s ease-in-out;
     overflow: hidden;
     max-width: 100%;
-    border-radius: 1vh;
+    border-radius: 2vh;
     opacity: 0;
     transition: opacity 3s ease;
 }
