@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Scale up the brand logo smoothly
         brandLogo.style.transition = 'transform 2s ease-in-out';
-        brandLogo.style.transform = 'scale(60)'; // Adjust the scale for smooth gliding
+        brandLogo.style.transform = 'scale(100)'; // Adjust the scale for smooth gliding
 
 
 
@@ -54,6 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Set an interval to automatically switch slides
-            setInterval(showNextSlide, 2500); // Adjust the interval duration here (in milliseconds)
+            setInterval(showNextSlide, 5000); // Adjust the interval duration here (in milliseconds)
         });
     });
