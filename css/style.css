@@ -121,7 +121,7 @@ button.active {
 
 .slideshow-container1,
 .slideshow-container2 {
-    height: 80vh;
+    height: 30vh;
     width: auto;
     margin: 2vh;
     position: relative;
@@ -130,10 +130,7 @@ button.active {
     align-items: center;
     justify-content: space-between;
     max-width: fit-content;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
 }
 
 .slide {
@@ -203,7 +200,7 @@ button.active {
 
 .card3 h2 {
     color: #fff;
-    font-size: 3.5vh;
+    font-size: 3vh;
     padding: 2.5vh 0;
 }
 
@@ -216,11 +213,12 @@ button.active {
 .card-container {
     position: relative;
     width: clamp(50vh, 100%, 190vh);
+    height: clamp(50vh, 100%, 190vh);
     /* Converted from 20px */
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: revert;
     margin: 0 auto;
 }
 
