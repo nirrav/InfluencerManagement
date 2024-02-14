@@ -50,6 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Hide the preloader after the fade out animation completes
         setTimeout(function () {
             preloader.style.display = 'none';
-        }, 2000); // Adjust the duration of fade out animation as needed
+        }, 1700); // Adjust the duration of fade out animation as needed
     }, 2000); // Adjust the duration before the animation starts as needed
 });

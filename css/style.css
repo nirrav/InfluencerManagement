@@ -36,25 +36,21 @@ body::-webkit-scrollbar {
     /* Display logo and text next to each other */
     align-items: center;
     /* Center vertically */
-    padding: 5vw;
+    padding: 2vw;
     /* Adjusted for better responsiveness */
     position: relative;
     /* Added */
 }
 
 .brand-logo img {
-    width: 20vw;
-    /* Adjusted for better responsiveness */
-    max-width: 200px;
-    /* Added for maximum width */
+    width: 10vw;
     height: auto;
     transition: all 2s ease-in-out;
-    margin-right: 2vw;
     /* Adjusted for better responsiveness */
 }
 
 .brand-logo h1 {
-    font-size: clamp(3rem, 0.3043vw + 4.783vw, 14rem);
+    font-size: clamp(2rem, 0.3043vw + 4.783vw, 4rem);
     margin-top: 0;
     color: #fff !important;
     /* White text color */
@@ -125,30 +121,28 @@ button.active {
 
 .slideshow-container1,
 .slideshow-container2 {
-    margin-left: 2vh;
-    margin-right: 1vh;
+    margin: 2vh;
     position: absolute;
-    margin-top: 2vh;
-    /* Adjust margin-top using vh units */
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 110vh;
-    /* Adjust max-width using vh units */
+    max-width: fit-content                                                                       ;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slide {
     position: relative;
-    display: none;
+    display: contents;
     transition: opacity 0.1s ease-in-out;
     overflow: hidden;
     max-width: 100%;
-    margin-right: 1vh;
-    /* Add margin-right for gap using vh units */
     border-radius: 1vh;
     opacity: 0;
-    transition: opacity 1s ease; /* Adjust the duration and easing function as needed */
+    transition: opacity 3s ease;
 }
 
 .slide img {
@@ -199,7 +193,8 @@ button.active {
     flex-wrap: wrap;
     margin: 0 auto;
 }
-.information-card h1{
+
+.information-card h1 {
     text-align: center;
     color: #ffffff;
 }
