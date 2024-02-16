@@ -165,7 +165,7 @@ button.active {
 }
 
 /* For laptops (max-width: 1024px) */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 999999px) {
 
     .slideshow-container1,
     .slideshow-container2 {
@@ -205,6 +205,7 @@ button.active {
     flex-wrap: wrap;
     /* Allow cards to wrap to the next line */
     margin: 0 auto;
+    width: fit-content;
 }
 
 
@@ -264,8 +265,7 @@ button.active {
 
 .card-container .card h2 {
     color: #fff;
-    font-size: 4.5em;
-    padding: 30px 0;
+    font-size: 3.5em;
 }
 
 .card-container .card .content {
@@ -307,24 +307,6 @@ button.active {
     background: #000000;
 }
 
-@keyframes colorChange {
-    0% {
-        color: #fff;
-    }
-
-    50% {
-        color: #b1b493;
-    }
-
-    80% {
-        color: #4f8a8b;
-    }
-
-    100% {
-        color: #fff;
-    }
-}
-
 /* =======================Responsive Breakpoint ========================== */
 
 /* For laptops (max-width: 1024px) */
@@ -333,7 +315,7 @@ button.active {
         height: 90vh; /* Set height to 90vh for laptops */
     }
     .card {
-        width: 100%; /* Adjust width of cards for smaller screens */
+        width: 50%; /* Adjust width of cards for smaller screens */
     }
 }
 
