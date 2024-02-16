@@ -1,4 +1,12 @@
 /* General styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url(../fonts/roboto-regular-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
     background: linear-gradient(to bottom, #000000, #3b3b3b);
@@ -33,41 +41,24 @@ body::-webkit-scrollbar {
 
 .brand-logo {
     display: flex;
-    /* Display logo and text next to each other */
+    justify-content: center;
     align-items: center;
-    /* Center vertically */
-    padding: 2vw;
-    /* Adjusted for better responsiveness */
-    position: relative;
-    /* Added */
+    height: 100%;
 }
+
 
 .brand-logo img {
-    width: clamp(10vw, 10vw, 20vw);
-    height: clamp(10vw, 10vw, 20vw);
-    transition: all 2s ease-in-out;
-    /* Adjusted for better responsiveness */
+    width: 15%; /* Adjust percentage as needed */
 }
-
 .brand-logo h1 {
-    font-size: clamp(3rem, 3.5vw, 4rem);
-    margin-top: 0;
-    color: #fff !important;
-    /* White text color */
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* Text shadow for better visibility */
-    white-space: nowrap;
-    position: relative;
+    font-size: 3vw; /* Adjust viewport width units as needed */
+    color: #ffffff;
 }
 
 
 .preloader.fade-out {
     transition: opacity 2s ease-in-out;
 }
-
-
-
-
 
 
 /* MODEL & CREATOR BUTTONS  */
@@ -169,8 +160,8 @@ button.active {
 
     .slideshow-container1,
     .slideshow-container2 {
-        height: 90vh;
-        width: auto;
+        height: max-content;
+        width: 100%;
         /* Set height to 90vh for laptops */
     }
 }
@@ -180,32 +171,28 @@ button.active {
 
     .slideshow-container1,
     .slideshow-container2 {
-        height: 22vh;
-        width: auto;
+        height: max-content;
+        width: 100%;
         /* Set height to 22vh for mobile devices */
+    }
+    .slide{
+        height: 300px;
     }
 }
 
 
 /* INFO CARD STYLESx */
 /* ==========================Font========================== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-@font-face {
-    font-family: 'robotoregular';
-    src: url(../fonts/roboto-regular-webfont.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 .card-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     /* Allow cards to wrap to the next line */
-    margin: 0 auto;
-    width: fit-content;
+    margin: auto;
+    width: 100%;
 }
 
 
@@ -265,7 +252,8 @@ button.active {
 
 .card-container .card h2 {
     color: #fff;
-    font-size: 3.5em;
+    font-size: clamp(2.5em, 3.5em, 100%);
+    margin-top: 25px;
 }
 
 .card-container .card .content {
@@ -312,17 +300,18 @@ button.active {
 /* For laptops (max-width: 1024px) */
 @media only screen and (max-width: 1024px) {
     .card {
-        height: 90vh; /* Set height to 90vh for laptops */
+        height: max-content; /* Set height to 90vh for laptops */
     }
     .card {
-        width: 50%; /* Adjust width of cards for smaller screens */
+        width: 100%; /* Adjust width of cards for smaller screens */
     }
+    
 }
 
 /* For mobile devices (max-width: 768px) */
 @media only screen and (max-width: 768px) {
     .card {
-        height: 22vh; /* Set height to 10vh for mobile devices */
+        height: min-content; /* Set height to 10vh for mobile devices */
     }
     .card {
         width: 100%; /* Adjust width of cards for mobile devices */
