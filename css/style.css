@@ -43,8 +43,8 @@ body::-webkit-scrollbar {
 }
 
 .brand-logo img {
-    width: clamp(5vw, 10vw, 20vw);
-    height: clamp(5vw, 10vw, 20vw);
+    width: clamp(10vw, 10vw, 20vw);
+    height: clamp(10vw, 10vw, 20vw);
     transition: all 2s ease-in-out;
     /* Adjusted for better responsiveness */
 }
@@ -170,6 +170,7 @@ button.active {
     .slideshow-container1,
     .slideshow-container2 {
         height: 90vh;
+        width: auto;
         /* Set height to 90vh for laptops */
     }
 }
@@ -179,7 +180,8 @@ button.active {
 
     .slideshow-container1,
     .slideshow-container2 {
-        height: 10vh;
+        height: 22vh;
+        width: auto;
         /* Set height to 22vh for mobile devices */
     }
 }

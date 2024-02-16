@@ -50,10 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Show the next slide
                     slides[slideIndex].style.display = "block";
                     slides[slideIndex].style.opacity = 1;
-                }, 2000); // Adjust the transition duration here (in milliseconds)
+                }, 1000); // Adjust the transition duration here (in milliseconds)
             }
 
             // Set an interval to automatically switch slides
-            setInterval(showNextSlide, 3000); // Adjust the interval duration here (in milliseconds)
+            setInterval(showNextSlide, 2000); // Adjust the interval duration here (in milliseconds)
         });
     });
