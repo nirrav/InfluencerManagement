@@ -41,9 +41,10 @@ body {
     min-height: 100vh;
     background: linear-gradient(to bottom, #000000, #3b3b3b);
     font-family: 'Poppins', sans-serif;
-    padding-top: 60px;
+    padding-top: 52px;
     /* Add padding top to body to prevent content from being hidden behind the navbar */
     margin: 0;
+    width: auto;
     /* Reset default margin */
 }
 

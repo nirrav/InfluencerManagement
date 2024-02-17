@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Scale up the brand logo smoothly
         brandLogo.style.transition = 'transform 2s ease-in-out';
-        brandLogo.style.transform = 'scale(100)'; // Adjust the scale for smooth gliding
+        brandLogo.style.transform = 'scale(30)'; // Adjust the scale for smooth gliding
 
 
 
