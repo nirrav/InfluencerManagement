@@ -440,7 +440,7 @@ footer {
 section {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 30px;
     padding-bottom: 20px;
     padding-left: 60px;
