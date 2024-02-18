@@ -1,5 +1,3 @@
-/* PRELOADER */
-
 document.addEventListener("DOMContentLoaded", function () {
     // Wait for the DOM content to be fully loaded
     setTimeout(function () {
@@ -11,17 +9,18 @@ document.addEventListener("DOMContentLoaded", function () {
         brandLogo.style.transition = 'transform 2s ease-in-out';
         brandLogo.style.transform = 'scale(30)'; // Adjust the scale for smooth gliding
 
-
-
-        // Trigger fade out animation for the preloader
-        preloader.classList.add('fade-out');
-
         // Hide the preloader after the fade out animation completes
         setTimeout(function () {
             preloader.style.display = 'none';
-        }, 1700); // Adjust the duration of fade out animation as needed
+        }, 2000); // Adjust the duration before the animation starts as needed
     }, 2000); // Adjust the duration before the animation starts as needed
 });
+
+window.onload = function () {
+    // Trigger fade out animation for the preloader
+    const preloader = document.querySelector('.preloader');
+    preloader.classList.add('fade-out');
+};
 
 
 

@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="preloader"></div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand custom-font" href="index.html">Bioscope Media</a>
@@ -84,6 +85,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-eSsI6UqLYZBv2UsrIvsB6P/lqXb1bYIjQ+3JILx2Pc5ll2wsw2Qj2z5SgXIkyta"
         crossorigin="anonymous"></script>
+        <script>
+            // preloader
+            const fadeOut=() =>{
+                const loader = document.querySelector(".preloader");
+                loader.classList.remove("preloader");
+            }
+            window.addEventListener("load", fadeOut);
+        </script>
 
 </body>
 
