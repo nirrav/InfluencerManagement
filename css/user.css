@@ -2,31 +2,64 @@
     font-family: 'IBM Plex Serif', serif;
 }
 
-.preloader{
-    width: 100vh;
-    height: 100vh;
-    background: white url("/media/video-camera.gif");
+.loading-bar-container {
     position: fixed;
-    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    /* Set loading bar height */
+    background-color: #ccc;
+    /* Set loading bar background color */
+    z-index: 9999;
+    /* Ensure the loading bar stays on top */
+    transition: opacity 0.5s ease;
 }
+
+.loading-bar {
+    height: 100%;
+    background-color: #007bff;
+    /* Set loading bar color */
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+
+/* Hide the preloader when the page finishes loading */
+.hide-preloader {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
 .navbar {
     background: rgb(0, 0, 0) !important;
     color: #ffffff;
-    position: absolute; /* Set navbar position to sticky */
-    top: 0; /* Position navbar at the top of the page */
-    z-index: 1000; /* Ensure the navbar stays on top */
-    width: 100%; /* Make navbar full width */
+    position: absolute;
+    /* Set navbar position to sticky */
+    top: 0;
+    /* Position navbar at the top of the page */
+    z-index: 1000;
+    /* Ensure the navbar stays on top */
+    width: 100%;
+    /* Make navbar full width */
 }
 
 
 .navbar-divider {
     height: 2px;
-    background-color: #ffffff; /* Change to white background color */
-    margin-top: 10px; /* Adjust margin as needed */
-    width: 100%; /* Ensure the divider spans the full width of the navbar */
-    position: absolute; /* Ensure the divider's position is absolute */
-    top: 50px; /* Adjust top position to match navbar height */
-    z-index: 999; /* Ensure the divider stays on top of other elements */
+    background-color: #ffffff;
+    /* Change to white background color */
+    margin-top: 10px;
+    /* Adjust margin as needed */
+    width: 100%;
+    /* Ensure the divider spans the full width of the navbar */
+    position: absolute;
+    /* Ensure the divider's position is absolute */
+    top: 50px;
+    /* Adjust top position to match navbar height */
+    z-index: 999;
+    /* Ensure the divider stays on top of other elements */
 }
 
 

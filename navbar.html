@@ -12,8 +12,6 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
-        
-
         .navbar {
             background: rgb(0, 0, 0) !important;
             color: #ffffff;
@@ -50,47 +48,11 @@
             color: #000000 !important;
         }
 
-        .modal-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
         /* Add margin to the left of the navbar brand */
         .navbar-brand {
             margin-left: 25px;
             font-size: 22px;
-        }
-
-        .modal-body {
-            display: flex;
-            justify-content: center;
-        }
-
-        .modal-body a {
-            margin: 0 10px;
-            color: #000;
-            /* Set text color to black */
-            background-color: #fff;
-            /* Set default background color to white */
-            border: none;
-            /* Remove default button border */
-            border-radius: 5px;
-            /* Add border radius */
-            padding: 10px 20px;
-            /* Adjust padding */
-            transition: background-color 0.3s, color 0.3s;
-            /* Add transition for smooth hover effect */
-            text-decoration: none; /* Remove default underline */
-        }
-
-        .modal-body a:hover {
-            color: #fff;
-            /* Change text color to white on hover */
-            background-color: #000;
-            /* Change background color to black on hover */
+            font-family: 'IBM Plex Serif', serif; /* Applying custom font */
         }
 
         /* White line between navbar and body */
@@ -100,7 +62,8 @@
             margin-top: 10px;
             /* Adjust the margin to set the desired space between navbar and body */
         }
-        .container-fluid{
+
+        .container-fluid {
             width: 100%;
         }
     </style>
@@ -109,42 +72,25 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ">
         <div class="container-fluid">
-             <a class="navbar-brand custom-font" href="index.html">Bioscope Media</a>
-          <!--  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <a class="navbar-brand" href="index.html">Bioscope Media</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                Glamorous Login/Signup button
+                <!--  Glamorous Login/Signup button -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link glamorous-button" href="#" data-bs-toggle="modal"
-                            data-bs-target="#loginSignupModal"></a>
+                        <a class="nav-link glamorous-button" href="https://forms.gle/CSLYhy7eAXDD5EFE6">Login/Signup</a>
                     </li>
                 </ul>
-            </div>  -->
+            </div>
         </div>
     </nav>
 
     <!-- White line between navbar and body -->
     <div class="navbar-divider"></div>
-
-    <!-- Login/Signup Modal -->
-    <div class="modal fade" id="loginSignupModal" tabindex="-1" aria-labelledby="loginSignupModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginSignupModalLabel">Who are you?</h5>
-                </div>
-                <div class="modal-body">
-                    <a class="glamorous-button" href="i_login.html">Influencer</a>
-                    <a class="glamorous-button" href="b_login.html">Brand</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- [Other Parts of Your HTML Content Here] -->
 

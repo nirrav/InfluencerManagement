@@ -69,17 +69,17 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 1vh;
+    min-height: 0.5vh;
     background-color: #000000;
 }
 
 button {
     position: relative;
     display: inline-block;
-    margin: 1.875vh 2.25vh;
-    padding: 1.875vh 2.25vh;
+    margin: 0.875vh ;
+    padding: 0.875vh 2.25vh;
     text-align: center;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
     background: transparent;
@@ -179,7 +179,7 @@ button.active {
     align-items: center;
     flex-wrap: wrap;
     margin: auto;
-    width: 100%;
+    width: clamp(10%,70%);
 }
 
 
@@ -361,7 +361,7 @@ button.active {
     align-items: center;
     text-align: center;
     height: 100%;
-    border-radius: 1.2vh;
+    border-radius: 0.5vh;
 
 }
 
