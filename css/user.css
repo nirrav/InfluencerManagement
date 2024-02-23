@@ -1,29 +1,60 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: 
+*/
+
 .custom-font {
     font-family: 'IBM Plex Serif', serif;
 }
 
-.loading-bar-container {
+.preloader {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 5px;
-    /* Set loading bar height */
-    background-color: #ccc;
-    /* Set loading bar background color */
+    width: 300vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 9999;
-    /* Ensure the loading bar stays on top */
-    transition: opacity 0.5s ease;
 }
 
-.loading-bar {
-    height: 100%;
-    background-color: #007bff;
-    /* Set loading bar color */
-    width: 0;
-    transition: width 0.3s ease;
+.preloader {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    animation: loader 2s infinite ease-in-out;
 }
 
+.loader span {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 4px solid #0B1B48;
+}
+
+.loader span:nth-child(1) {
+    animation: span-1 2s ease-in-out infinite;
+}
+
+.loader span:nth-child(2) {
+    animation: span-2 2s ease-in-out infinite;
+}
+
+.loader span:nth-child(3) {
+    animation: span-3 2s ease-in-out infinite;
+}
+
+.loader span:nth-child(4) {
+    animation: span-4 2s ease-in-out infinite;
+}
 
 /* Hide the preloader when the page finishes loading */
 .hide-preloader {
@@ -31,37 +62,24 @@
     pointer-events: none;
 }
 
-
 .navbar {
     background: rgb(0, 0, 0) !important;
     color: #ffffff;
     position: absolute;
-    /* Set navbar position to sticky */
     top: 0;
-    /* Position navbar at the top of the page */
     z-index: 1000;
-    /* Ensure the navbar stays on top */
     width: 100%;
-    /* Make navbar full width */
 }
-
 
 .navbar-divider {
     height: 2px;
     background-color: #ffffff;
-    /* Change to white background color */
     margin-top: 10px;
-    /* Adjust margin as needed */
     width: 100%;
-    /* Ensure the divider spans the full width of the navbar */
     position: absolute;
-    /* Ensure the divider's position is absolute */
     top: 50px;
-    /* Adjust top position to match navbar height */
     z-index: 999;
-    /* Ensure the divider stays on top of other elements */
 }
-
 
 .nav-link {
     color: #ffffff !important;
@@ -71,9 +89,6 @@
     color: #f8f9fa !important;
 }
 
-
-
-
 body {
     display: flex;
     align-items: center;
@@ -82,10 +97,8 @@ body {
     background: linear-gradient(to bottom, #000000, #3b3b3b);
     font-family: 'Poppins', sans-serif;
     padding-top: 52px;
-    /* Add padding top to body to prevent content from being hidden behind the navbar */
     margin: 0;
     width: auto;
-    /* Reset default margin */
 }
 
 body::-webkit-scrollbar {
