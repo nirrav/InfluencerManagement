@@ -5,7 +5,7 @@
 * Browsers: 
 */
 
-/* General styling */
+/* Fonts and Imports */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 @font-face {
@@ -15,23 +15,101 @@
     font-style: normal;
 }
 
+/* General Styling */
 body {
     background: linear-gradient(to bottom, #000000, #3b3b3b);
     color: #fff;
     width: 100%;
     overflow-x: hidden;
-
 }
-
-
-
 
 body::-webkit-scrollbar {
     display: none;
 }
 
-/*--------------------PRELOADER STYLES--------------------*/
+/* Navbar */
+.navbar {
+    background: rgb(0, 0, 0) !important;
+    color: #ffffff;
+    width: 100% !important;
+}
 
+.nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: #f8f9fa !important;
+}
+
+.navbar-brand {
+    margin-left: 25px;
+    font-size: 22px;
+    font-family: 'IBM Plex Serif', serif;
+}
+
+.navbar-divider {
+    height: 2px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+/* Buttons */
+.glamorous-button {
+    background: #000000 !important;
+    color: #ffffff !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-family: 'IBM Plex Serif', serif;
+}
+
+.glamorous-button:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.nav-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 0.5vh;
+    background-color: #000000;
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    margin: 0.875vh;
+    padding: 0.875vh 2.25vh;
+    text-align: center;
+    letter-spacing: 4px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 0.15vh solid rgba(0, 0, 0, 0.8);
+    border-radius: 1.5vh;
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.8);
+    font-size: clamp(12px, 3vw, 24px) !important;
+    font-weight: 3px;
+}
+
+button:hover {
+    color: rgb(0, 0, 0);
+    box-shadow: inset 0 -8.64vh 0 0 rgba(255, 255, 255, 0.8);
+    border-radius: 1.5vh;
+}
+
+button.active {
+    transform: scale(0.9);
+}
+
+/* Preloader */
 .preloader {
     background: linear-gradient(to right, #000000, #3b3b3b);
     position: absolute;
@@ -45,13 +123,16 @@ body::-webkit-scrollbar {
     z-index: 9999;
 }
 
+.preloader.fade-out {
+    transition: opacity 2s ease-in-out;
+}
+
 .brand-logo {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
 }
-
 
 .brand-logo img {
     width: 20%;
@@ -61,59 +142,9 @@ body::-webkit-scrollbar {
     font-size: 5vw;
     color: #ffffff;
     z-index: 9999;
-
 }
 
-
-.preloader.fade-out {
-    transition: opacity 2s ease-in-out;
-}
-
-
-/*-----------------MODEL & CREATOR BUTTONS -----------------*/
-
-.nav-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 0.5vh;
-    background-color: #000000;
-}
-
-button {
-    position: relative;
-    display: inline-block;
-    margin: 0.875vh ;
-    padding: 0.875vh 2.25vh;
-    text-align: center;
-    letter-spacing: 4px;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.8);
-    background: transparent;
-    cursor: pointer;
-    transition: ease-out 0.5s;
-    border: 0.15vh solid rgba(0, 0, 0, 0.8);
-    border-radius: 1.5vh;
-    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.8);
-    font-size: clamp(12px, 3vw, 24px) !important;
-    /* Adjust the min, preferred, and max font sizes */
-    font-weight: 3px;
-}
-
-
-
-
-button:hover {
-    color: rgb(0, 0, 0);
-    box-shadow: inset 0 -8.64vh 0 0 rgba(255, 255, 255, 0.8);
-    border-radius: 1.5vh;
-}
-
-button.active {
-    transform: scale(0.9);
-}
-/*-----------------------------SLIDESHOW STYLES-----------------------------*/
-
+/* Slideshow */
 .slideshow-container1,
 .slideshow-container2 {
     min-height: 22vh;
@@ -154,31 +185,7 @@ button.active {
     z-index: 1;
 }
 
-/* For laptops (max-width: 1024px) */
-@media only screen and (max-width: 999999px) {
-    .slideshow-container1,
-    .slideshow-container2 {
-        height: max-content;
-        width: 100%;
-    }
-}
-
-/* For mobile devices (max-width: 768px) */
-@media only screen and (max-width: 768px) {
-    .slideshow-container1,
-    .slideshow-container2 {
-        height: max-content;
-        width: 100%;
-    }
-    .slide {
-        height: 300px;
-    }
-}
-
-
-/* INFO CARD STYLESx */
-/* ==========================Font========================== */
-
+/* Info Cards */
 .card-container {
     position: relative;
     display: flex;
@@ -186,9 +193,8 @@ button.active {
     align-items: center;
     flex-wrap: wrap;
     margin: auto;
-    width: clamp(10%,70%);
+    width: 70%;
 }
-
 
 .card-container .card {
     position: relative;
@@ -223,15 +229,11 @@ button.active {
 }
 
 .card-container .card:hover .content a {
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, .2),
-        -1px -1px 2px rgba(255, 255, 255, .4);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .2), -1px -1px 2px rgba(255, 255, 255, .4);
 }
 
 .card-container .card .content a:active {
-    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1),
-        inset 5px 5px 5px rgba(0, 0, 0, .04),
-        inset -5px -5px 5px rgba(255, 255, 255, .07),
-        inset -1px -1px 2px rgba(255, 255, 255, .4);
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1), inset 5px 5px 5px rgba(0, 0, 0, .04), inset -5px -5px 5px rgba(255, 255, 255, .07), inset -1px -1px 2px rgba(255, 255, 255, .4);
 }
 
 .card-container .card .circle {
@@ -289,33 +291,7 @@ button.active {
     background: #000000;
 }
 
-/* =======================Responsive Breakpoint ========================== */
-
-/* For laptops (max-width: 1024px) */
-@media only screen and (max-width: 1024px) {
-    .card {
-        height: min-content;
-    }
-
-    .card {
-        width: 100%;
-    }
-
-}
-
-/* For mobile devices (max-width: 768px) */
-@media only screen and (max-width: 768px) {
-    .card {
-        height: auto; /* Adjust the desired height */
-        width: calc(100% - 20px); /* Adjust the desired width */
-        /* Subtracting 20px for padding, margin, or borders to maintain the element within the viewport */
-    }
-}
-
-
-
-/*---------------------------FEATURED INFLUENCER STYLES---------------------------*/
-
+/* Featured Influencers */
 .featured-influencer,
 .featured-influencer h2 {
     text-align: center;
@@ -360,7 +336,6 @@ button.active {
     transform: rotateY(180deg);
 }
 
-
 .overlay {
     display: flex;
     flex-direction: column;
@@ -369,7 +344,6 @@ button.active {
     text-align: center;
     height: 100%;
     border-radius: 0.5vh;
-
 }
 
 .overlay h1 {
@@ -378,14 +352,7 @@ button.active {
     margin: 10px 0;
 }
 
-
-
-
-
-/*--------------------FOOTER STYLES------------------------*/
-
-
-
+/* Footer */
 footer {
     position: relative;
     left: 0;
@@ -452,6 +419,63 @@ section.top ul {
     grid-template-columns: repeat(2, 1fr);
 }
 
+section.top ul li a {
+    display: block;
+    margin-bottom: 10px;
+    color: rgb(255 255 255 / 90%);
+    font-size: 15px;
+}
+
+section.top h3 {
+    color: rgb(255 255 255 / 40%);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+section.bottom {
+    padding-top: 10px;
+    border-top: 2px solid rgb(255 255 255 / 10%);
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* Responsive Breakpoints */
+/* For laptops (max-width: 1024px) */
+@media only screen and (max-width: 1024px) {
+    .slideshow-container1,
+    .slideshow-container2 {
+        height: max-content;
+        width: 100%;
+    }
+
+    .card {
+        height: min-content;
+        width: 100%;
+    }
+}
+
+/* For mobile devices (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+    .slideshow-container1,
+    .slideshow-container2 {
+        height: max-content;
+        width: 100%;
+    }
+
+    .slide {
+        height: 300px;
+    }
+
+    .card {
+        height: auto;
+        width: calc(100% - 20px);
+    }
+}
+
+/* For footer specific breakpoints */
 @media (width > 480px) {
     footer article button {
         width: 70%;
@@ -479,28 +503,4 @@ section.top ul {
         grid-template-columns: repeat(4, 1fr);
         padding-right: 0;
     }
-}
-
-section.top ul li a {
-    display: block;
-    margin-bottom: 10px;
-    color: rgb(255 255 255 / 90%);
-    font-size: 15px;
-
-}
-
-section.top h3 {
-    color: rgb(255 255 255 / 40%);
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 15px;
-    letter-spacing: 1px;
-}
-
-section.bottom {
-    padding-top: 10px;
-    border-top: 2px solid rgb(255 255 255 / 10%);
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 13px;
-    text-align: center;
 }
