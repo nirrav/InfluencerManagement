@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.our-services {
+    padding: 50px 0;
+    background-color: #a09a84;
+    text-align: center;
+    border-top: 2px solid black;
+}
+
+.our-services h2 {
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.our-services h3 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.testimonials {
+    padding: 50px 0;
+    background-color: #a09a84;
+    overflow: hidden;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.testimonial-wrapper {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+}
+
+.testimonial-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px;
+    text-align: center;
+}
+
+blockquote {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+blockquote p {
+    margin-bottom: 10px;
+}
+
+
+blockquote h5 {
+    color: #000000;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.contact-us {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.contact-us h2 {
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.contact-us .form-label {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+}
+
+.contact-us .btn-primary {
+    background-color: #064439;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}

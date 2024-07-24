@@ -25,38 +25,63 @@ window.onload = function () {
 
 
 /* SLIDESHOW */
-
-// Wait for the DOM content to load before executing JavaScript
 document.addEventListener("DOMContentLoaded", function () {
-    // Define variables for slideshows
-    var slideshows = document.querySelectorAll('.slideshow-container1, .slideshow-container2');
+    const slides1 = document.querySelectorAll(".slideshow-container1 .slide");
+    const slides2 = document.querySelectorAll(".slideshow-container2 .slide");
+    let currentSlide1 = 0;
+    let currentSlide2 = 0;
 
-    // Iterate through each slideshow
-    slideshows.forEach(function (slideshow) {
-        var slides = slideshow.querySelectorAll('.slide'); // Get all slides within the current slideshow
-        var slideIndex = 0; // Set the initial slide index
+    function showSlide(slides, index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index ? "block" : "none";
+            slide.style.opacity = i === index ? "1" : "0.8";
+        });
+    }
 
-        // Show the first slide initially
-        slides[slideIndex].style.display = "block";
-        slides[slideIndex].style.opacity = 1;
+    function nextSlide1() {
+        currentSlide1 = (currentSlide1 + 1) % slides1.length;
+        showSlide(slides1, currentSlide1);
+    }
 
-        // Define the function to display the next slide
-        function showNextSlide() {
-            // Hide the current slide
-            slides[slideIndex].style.opacity = 0;
-            setTimeout(function () {
-                slides[slideIndex].style.display = "none";
-                // Increment the slide index
-                slideIndex = (slideIndex + 1) % slides.length;
-                // Show the next slide
-                slides[slideIndex].style.display = "block";
-                slides[slideIndex].style.opacity = 1;
-            }, 2000); // Adjust the transition duration here (in milliseconds)
-        }
+    function nextSlide2() {
+        currentSlide2 = (currentSlide2 + 1) % slides2.length;
+        showSlide(slides2, currentSlide2);
+    }
 
-        // Set an interval to automatically switch slides
-        setInterval(showNextSlide, 3500); // Adjust the interval duration here (in milliseconds)
-    });
+    // Initialize slides
+    showSlide(slides1, currentSlide1);
+    showSlide(slides2, currentSlide2);
+
+    // Set intervals for slide transitions
+    setInterval(nextSlide1, 3500); // Change every 5 seconds
+    setInterval(nextSlide2, 3500);
 });
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const testimonialInner = document.querySelector('.testimonial-inner');
+    const testimonials = document.querySelectorAll('.testimonial-item');
+    let currentIndex = 0;
+    const totalItems = testimonials.length;
+
+    // Clone the first item and append it to the end
+    const firstClone = testimonials[0].cloneNode(true);
+    testimonialInner.appendChild(firstClone);
+
+    function autoScroll() {
+        currentIndex++;
+        testimonialInner.style.transition = 'transform 0.5s ease-in-out';
+        testimonialInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        if (currentIndex === totalItems) {
+            setTimeout(() => {
+                testimonialInner.style.transition = 'none';
+                testimonialInner.style.transform = `translateX(0)`;
+                currentIndex = 0;
+            }, 500);
+        }
+    }
+
+    setInterval(autoScroll, 3000); // Change slide every 3 seconds
+});
 

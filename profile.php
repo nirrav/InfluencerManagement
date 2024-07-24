@@ -1,70 +1,31 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root"; // Assuming username is root
-$password = ""; // No password
-$dbname = "website";
+// Start the session
+session_start();
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Include your database connection file
+include 'config.php';
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Check if the user ID is set in the GET request
+if (!isset($_GET['user_id'])) {
+    echo "Error: User ID not provided.";
+    exit();
 }
 
-$message = "";
+$user_id = $_GET['user_id'];
 
-// Function to sanitize inputs
-function sanitize_input($data)
-{
-    return htmlspecialchars(stripslashes(trim($data)));
+// Fetch the user's data using the user ID
+$sql = "SELECT * FROM user_auth WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id); // Bind the user ID (integer)
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+// Check if user data is fetched correctly
+if (!$user) {
+    echo "Error: User data not found.";
+    exit();
 }
-
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize inputs
-    $name = sanitize_input($_POST['name']);
-    $dob = sanitize_input($_POST['dob']);
-    $gender = sanitize_input($_POST['gender']);
-    $email = sanitize_input($_POST['email']);
-    $height = sanitize_input($_POST['height']);
-    $weight = sanitize_input($_POST['weight']);
-    $eye_col = sanitize_input($_POST['eye_col']);
-
-    // Prepare SQL statement based on the form submitted
-    if (isset($_POST['submit_model'])) {
-        $stmt = $conn->prepare("INSERT INTO model (user_id, name, dob, gender, email, height, weight, eye_col) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    } elseif (isset($_POST['submit_influencer'])) {
-        $stmt = $conn->prepare("INSERT INTO influencer (user_id, name, dob, gender, email, height, weight, eye_col) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    }
-
-    // Get user ID from session or wherever it's stored
-    $user_id = 1; // Replace with the actual user ID
-
-    // Bind parameters and execute statement
-    if ($stmt) {
-        $stmt->bind_param("isssdsss", $user_id, $name, $dob, $gender, $email, $height, $weight, $eye_col);
-        if ($stmt->execute()) {
-            // Redirect to the same page with success message
-            header("Location: " . $_SERVER['PHP_SELF'] . "?success=1");
-            exit();
-        } else {
-            // Check if the error is due to a duplicate entry
-            if ($conn->errno == 1062) { // Duplicate entry error code
-                $message = "<p style='color: red;'>Error: Email already exists</p>";
-            } else {
-                $message = "<p style='color: red;'>Error: " . $stmt->error . "</p>";
-            }
-        }
-        $stmt->close();
-    } else {
-        $message = "<p style='color: red;'>Error: Unable to prepare statement</p>";
-    }
-}
-
-// Close connection
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -73,320 +34,342 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="png" href="media/bioscope-icon.png">
-    <title>Registration Form</title>
+    <link rel="icon" type="image/png" href="media/bioscope-icon.png">
+    <title>User Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMPXo1hN4zDzLZQoh0kPlR3/x8ABk9h5HFLfl6" crossorigin="anonymous">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="navbar.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-
-        * {
+        body {
+            background: #a09a84 !important;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
+            padding-top: 60px;
         }
 
-        body {
-            background-color: #c9d6ff;
-            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            height: 100vh;
+        body::-webkit-scrollbar {
+            display: none;
         }
 
         .container {
-            background-color: #fff;
-            border-radius: 150px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
-            position: relative;
-            overflow: hidden;
-            width: 80vw;
-            max-width: 100%;
-            min-height: 90vh;
-            margin-top: 10px;
+            font-family: "Roboto Condensed", sans-serif;
+            background: whitesmoke;
+            color: black;
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            margin: 50px auto;
+            max-width: 1300px;
         }
 
-        .container p {
-            font-size: 14px;
-            line-height: 20px;
-            letter-spacing: 0.3px;
-            margin: 20px 0;
+        .profile-header {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
-        .container span {
-            font-size: 12px;
+        .profile-header h1 {
+            font-weight: 300;
+            font-size: 3.5rem;
+            margin: 0;
         }
 
-        .container a {
-            color: #333;
-            font-size: 13px;
-            text-decoration: none;
-            margin: 15px 0 10px;
+        .profile-header h3 {
+            font-weight: 500;
+            font-size: 2.5rem;
+            margin: 0;
         }
 
-        .container button {
-            background-color: rgb(105, 105, 105);
-            color: #fff;
-            font-size: 12px;
-            padding: 10px 45px;
-            border: 2.5px solid black;
+        .profile-picture {
+            border-radius: 50%;
+            width: 250px;
+            height: auto;
+            object-fit: cover;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.05);
+        }
+
+        .swiper {
+            width: 95%;
+            height: 700px;
+            margin-bottom: 30px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 8px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-top: 10px;
+
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            object-fit: cover;
+            transition: transform 0.2s;
             cursor: pointer;
         }
 
-        .container button.hidden {
-            background-color: transparent;
-            border-color: #fff;
+        .grid-item img:hover {
+            transform: scale(1.05);
         }
 
-        .container form {
-            background-color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 0 40px;
-            height: 100%;
-        }
-
-        .container input {
-            background-color: #eee;
-            border: none;
-            margin: 8px 0;
-            padding: 10px 15px;
-            font-size: 13px;
-            border-radius: 8px;
-            width: 100%;
-            outline: none;
-        }
-
-        .form-container {
-            position: absolute;
-            top: 0;
-            height: 100%;
-            transition: all 0.6s ease-in-out;
-        }
-
-        .sign-in {
-            left: 0;
-            width: 50%;
-            z-index: 2;
-        }
-
-        .container.active .sign-in {
-            transform: translateX(100%);
-        }
-
-        .sign-up {
-            left: 0;
-            width: 50%;
-            opacity: 0;
-            z-index: 1;
-        }
-
-        .container.active .sign-up {
-            transform: translateX(100%);
-            opacity: 1;
-            z-index: 5;
-            animation: move 0.6s;
-        }
-
-        @keyframes move {
-
-            0%,
-            49.99% {
-                opacity: 0;
-                z-index: 1;
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
             }
 
-            50%,
-            100% {
-                opacity: 1;
-                z-index: 5;
+            .profile-picture {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-header h1 {
+                font-size: 2rem;
+            }
+
+            .profile-header h3 {
+                font-size: 1.2rem;
             }
         }
 
-        .social-icons {
-            margin: 20px 0;
+        @media (max-width: 576px) {
+            .container {
+                padding: 20px;
+                width: 90%;
+            }
+
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .profile-header h3 {
+                font-size: 1rem;
+            }
         }
 
-        .social-icons a {
-            border: 1px solid #ccc;
-            border-radius: 20%;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 3px;
-            width: 40px;
-            height: 40px;
+        .profile-details p {
+            font-size: 1.2rem;
         }
 
-        .toggle-container {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 50%;
-            height: 100%;
-            overflow: hidden;
-            transition: all 0.6s ease-in-out;
-            border-radius: 150px 150px 150px 150px;
-            z-index: 1000;
+        .profile-details strong {
+            font-size: 1.3rem;
         }
 
-        .container.active .toggle-container {
-            transform: translateX(-100%);
-            border-radius: 150px 150px 150px 150px;
+        .social-links a {
+            font-size: 1.2rem;
         }
 
-        .toggle {
-            height: 100%;
-            background: linear-gradient(to right, #000000, #4d4e4d);
-            color: #fff;
-            position: relative;
-            left: -100%;
-            height: 100%;
-            width: 200%;
-            transform: translateX(0);
-            transition: all 0.6s ease-in-out;
-        }
-
-        .container.active .toggle {
-            transform: translateX(50%);
-        }
-
-        .toggle-panel {
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 0 30px;
+        .prText {
+            color: black;
+            margin: auto;
+            padding-top: 5vh;
             text-align: center;
-            top: 0;
-            transform: translateX(0);
-            transition: all 0.6s ease-in-out;
-        }
-
-        .toggle-left {
-            transform: translateX(-200%);
-        }
-
-        .container.active .toggle-left {
-            transform: translateX(0);
-        }
-
-        .toggle-right {
-            right: 0;
-            transform: translateX(0);
-        }
-
-        .container.active .toggle-right {
-            transform: translateX(200%);
-        }
-
-        .navbar-container {
-            width: 100%;
         }
     </style>
 </head>
 
 <body>
-    
-    <?php
-    if (!empty($message)) {
-        echo $message;
-    } elseif (isset($_GET['success']) && $_GET['success'] == 1) {
-        echo "<p style='color: green;'>Model Registered successfully</p>";
-    }
-    ?>
-    <div class="container" id="container">
-        <div class="form-container sign-up">
-
-            <form method="POST">
-                <h1>Influencer Registration</h1>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" required>
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender" required>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="height">Height (Feet):</label>
-                <input type="number" id="height" name="height" step="0.01" required>
-                <label for="weight">Weight (Kg):</label>
-                <input type="number" id="weight" name="weight" step="0.01" required>
-                <label for="eye_col">Eye Color:</label>
-                <input type="text" id="eye_col" name="eye_col" required>
-                <button type="submit" name="submit_influencer">Submit</button>
-            </form>
-        </div>
-
-        <div class="form-container sign-in">
-            <form method="POST">
-                <h1>Model Registration</h1>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" required>
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender" required>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="height">Height (Feet):</label>
-                <input type="number" id="height" name="height" step="0.01" required>
-                <label for="weight">Weight (Kg):</label>
-                <input type="number" id="weight" name="weight" step="0.01" required>
-                <label for="eye_col">Eye Color:</label>
-                <input type="text" id="eye_col" name="eye_col" required>
-                <button type="submit" name="submit_model">Submit</button>
-            </form>
-        </div>
-
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Are you a model?</h1>
-                    <p>Register as a model...</p>
-                    <button class="hidden" id="login">Register</button>
+    <nav class="navbar navbar-expand-lg bg-body-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">
+                <img src="media/bioscope-icon.png" alt="Logo" width="35" height="auto"
+                    class="d-inline-block align-text-top">
+                <u>Bioscope Media</u>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <div class="d-flex w-100 justify-content-center">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <div class="nav-btn">
+                                <button type="button" onclick="window.location.href='artist.php'">Artists</button>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="nav-btn">
+                                <button type="button" onclick="window.location.href='model.php'">Brands</button>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Are you an influencer?</h1>
-                    <p>Register as an influencer...</p>
-                    <button class="hidden" id="register">Register</button>
+                <button class="btn btn-outline-light" onclick="goBack()">Back</button>
+                <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
+            </div>
+        </div>
+    </nav>
+    <h2 class="prText" style=""><strong><u><?php echo htmlspecialchars($user['username']); ?>'s Profile</u></strong>
+    </h2>
+    <div class="container">
+        <div class="profile-header">
+            <img loading="lazy" src="<?php echo htmlspecialchars($user['profile_picture']); ?>" alt="Profile Picture"
+                class="profile-picture"
+                onclick="openModal('<?php echo htmlspecialchars($user['profile_picture']); ?>')">
+            <div>
+                <h1><?php echo htmlspecialchars($user['username']); ?></h1>
+                <h3><?php echo htmlspecialchars($user['email']); ?></h3>
+            </div>
+        </div>
+        <div class="row profile-details">
+            <div class="col-md-6">
+                <p><strong>Location: <?php echo htmlspecialchars($user['state']); ?></strong></p>
+                <p><strong>Height: <?php echo htmlspecialchars($user['height']); ?> cm</strong></p>
+                <p><strong>Weight: <?php echo htmlspecialchars($user['weight']); ?> kg</strong></p>
+                <p><strong>Eye Color: <?php echo htmlspecialchars($user['eye_col']); ?></strong></p>
+                <p><strong>Note: <?php echo htmlspecialchars($user['note']); ?></strong></p>
+            </div>
+            <div class="col-md-6 social-links">
+                <?php if (!empty($user['insta_followers'])): ?>
+                    <p><strong>Instagram Followers:<span
+                                class="text-blank"><?php echo htmlspecialchars($user['insta_followers']); ?></span> <i
+                                class="fab fa-instagram"></i></strong> </p>
+                <?php endif; ?>
+
+                <?php if (!empty($user['insta'])): ?>
+                    <p><strong>Instagram:</strong> <a href="<?php echo htmlspecialchars($user['insta']); ?>" target="_blank"
+                            class="text-black"><i class="fab fa-instagram"></i>
+                            <?php echo htmlspecialchars($user['insta']); ?></a></p>
+                <?php endif; ?>
+                <?php if (!empty($user['snap'])): ?>
+                    <p><strong>Snapchat:</strong> <a href="<?php echo htmlspecialchars($user['snap']); ?>" target="_blank"
+                            class="text-black"><i class="fab fa-snapchat-ghost"></i>
+                            <?php echo htmlspecialchars($user['snap']); ?></a></p>
+                <?php endif; ?>
+                <?php if (!empty($user['fb'])): ?>
+                    <p><strong>Facebook:</strong> <a href="<?php echo htmlspecialchars($user['fb']); ?>" target="_blank"
+                            class="text-black"><i class="fab fa-facebook"></i>
+                            <?php echo htmlspecialchars($user['fb']); ?></a></p>
+                <?php endif; ?>
+                <?php if (!empty($user['yt'])): ?>
+                    <p><strong>YouTube:</strong> <a href="<?php echo htmlspecialchars($user['yt']); ?>" target="_blank"
+                            class="text-black"><i class="fab fa-youtube"></i>
+                            <?php echo htmlspecialchars($user['yt']); ?></a></p>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <?php
+                $photos = explode(',', $user['photo_album']);
+                $total_photos = count($photos);
+                for ($i = 0; $i < min(7, $total_photos); $i++) {
+                    $photoPath = trim($photos[$i]);
+                    echo '<div class="swiper-slide"><img loading="lazy"src="' . htmlspecialchars($photoPath) . '"  alt="Photo"></div>';
+                }
+                ?>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="grid-container">
+            <?php
+            for ($i = 7; $i < $total_photos; $i++) {
+                $photoPath = trim($photos[$i]);
+                echo '<div class="grid-item"><img loading="lazy"src="' . htmlspecialchars($photoPath) . '"   alt="Photo"></div>';
+            }
+            ?>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz4fnFO9gybBogGzUglzGL5lJ7B1kk3WpP180xCFpDIpCjmFwpOMlWR6pG" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QFQtQ7N4w7G+U6q7ib8yQBC0K5N4liNP0SU7oyXt0mOOvyNkgjQRVvoxMfooRMhE" crossorigin="anonymous">
+        </script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        function openModal(imageSrc) {
+            var modal = new bootstrap.Modal(document.getElementById('imageModal'));
+            document.getElementById('modalImage').src = imageSrc;
+            modal.show();
+        }
+    </script>
+
+
+    <!-- Modal for image zoom -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img loading="lazy" id="modalImage" src="" alt="Full size image" class="img-fluid">
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        const container = document.getElementById('container');
-        const registerBtn = document.getElementById('register');
-        const loginBtn = document.getElementById('login');
-
-        registerBtn.addEventListener('click', () => {
-            container.classList.add("active");
-        });
-
-        loginBtn.addEventListener('click', () => {
-            container.classList.remove("active");
-        });
-    </script>
 </body>
 
 </html>
